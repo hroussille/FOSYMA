@@ -21,7 +21,7 @@ public class ClientInterlockingFSMBehaviour extends FSMBehaviour
 		this.registerLastState(new EndClientInterlockingBehaviour(myagent), "END-CLIENT-INTERLOCKING");
 		this.registerState(new PopConflictBehaviour(myagent), "POP-CONFLICT");
 		this.registerState(new InterlockingFSMBehaviour(myagent), "INTERLOCKING");
-		this.registerState(new CheckTimeOutBehaviour(myagent, 30), "WAIT");
+		this.registerState(new CheckTimeOutBehaviour(myagent, 10), "WAIT");
 		this.registerState(new NotifyNodeAvailabilityBehaviour(myagent), "NOTIFY-NODE-AVAILABILITY");
 		this.registerState(new RandomInterlockingStrategyBehaviour(myagent), "RANDOM-INTERLOCKING-STRATEGY");
 		

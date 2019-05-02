@@ -17,7 +17,7 @@ public class GetMissionFSMBehaviour extends FSMBehaviour {
 		
 		this.registerFirstState(new SendMissionRequestBehaviour(myagent), "REQUEST-MISSION");
 		this.registerState(new ReceiveMissionAssignementBehaviour(myagent), "RECEIVE-MISSION");
-		this.registerState(new CheckTimeOutBehaviour(myagent, 5), "CHECK-TIMEOUT");
+		this.registerState(new CheckTimeOutBehaviour(myagent, 10), "CHECK-TIMEOUT");
 		this.registerState(new ClientInterlockingFSMBehaviour(myagent), "CLIENT-INTERLOCKING");
 		this.registerLastState(new EndGetMissionBehaviour(myagent), "END-GET-MISSION");
 		

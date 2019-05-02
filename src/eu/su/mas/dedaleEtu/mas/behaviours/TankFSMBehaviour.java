@@ -44,10 +44,10 @@ public class TankFSMBehaviour  extends FSMBehaviour {
 		this.registerTransition("CLIENT-INTERLOCKING", "BROADCAST-TANK", FSMCodes.Events.SUCESS.ordinal());
 		this.registerTransition("BROADCAST-TANK", "RECEIVE-MISSION-REQUEST", FSMCodes.Events.SUCESS.ordinal());
 		this.registerTransition("RECEIVE-MISSION-REQUEST", "SEND-MISSION-ASSIGNEMENT", FSMCodes.Events.SUCESS.ordinal());
-		this.registerTransition("RECEIVE-MISSION-REQUEST", "RECEIVE-MISSION-ASSIGNEMENT-ACK", FSMCodes.Events.FAILURE.ordinal());
+		this.registerTransition("RECEIVE-MISSION-REQUEST", "SEND-MISSION-ASSIGNEMENT", FSMCodes.Events.FAILURE.ordinal());
 		this.registerTransition("SEND-MISSION-ASSIGNEMENT", "RECEIVE-MISSION-ASSIGNEMENT-ACK", FSMCodes.Events.SUCESS.ordinal());
-		this.registerTransition("RECEIVE-MISSION-ASSIGNEMENT-ACK", "RECEIVE-MISSION-COMPLETION-NOTIFICATION", FSMCodes.Events.FAILURE.ordinal());
 		this.registerTransition("RECEIVE-MISSION-ASSIGNEMENT-ACK", "RECEIVE-MISSION-COMPLETION-NOTIFICATION", FSMCodes.Events.SUCESS.ordinal());
+		this.registerTransition("RECEIVE-MISSION-ASSIGNEMENT-ACK", "RECEIVE-MISSION-COMPLETION-NOTIFICATION", FSMCodes.Events.FAILURE.ordinal());
 		this.registerTransition("RECEIVE-MISSION-COMPLETION-NOTIFICATION", "RECEIVE-UPDATE-TANKER-KNOWLEDGE", FSMCodes.Events.SUCESS.ordinal());
 		this.registerTransition("RECEIVE-MISSION-COMPLETION-NOTIFICATION", "RECEIVE-UPDATE-TANKER-KNOWLEDGE", FSMCodes.Events.FAILURE.ordinal());
 		this.registerTransition("RECEIVE-UPDATE-TANKER-KNOWLEDGE", "GO-TO", FSMCodes.Events.SUCESS.ordinal());

@@ -21,7 +21,7 @@ public class InterlockingFSMBehaviour extends FSMBehaviour
 		this.registerState(new CheckInterlockingTypeBehaviour(myagent), "CHECK-INTERLOCKING-TYPE");
 		this.registerState(new RandomInterlockingStrategyBehaviour(myagent), "RANDOM-INTERLOCKING");
 		this.registerState(new RequestNodeBehaviour(myagent), "REQUEST-NODE");
-		this.registerState(new CheckTimeOutBehaviour(myagent, 10), "CHECK-TIMEOUT");
+		this.registerState(new CheckTimeOutBehaviour(myagent, 15), "CHECK-TIMEOUT");
 		this.registerState(new GetNodeBehaviour(myagent), "GET-NODE");
 		this.registerState(new WaitNodeAvailabilityBehaviour(myagent), "WAIT-NODE-AVAILABILITY");
 		this.registerLastState(new EndInterlockingBehaviour(myagent), "END-INTERLOCKING");

@@ -10,9 +10,11 @@ public class TransferSiloFSMBehaviour extends FSMBehaviour {
 	 * 
 	 */
 	private static final long serialVersionUID = 2439989609188495215L;
+	private CollectMultiAgent _myAgent;
 
 	public TransferSiloFSMBehaviour(CollectMultiAgent myagent) {
 		super(myagent);
+		this._myAgent = myagent;
 		
 		this.registerFirstState(new StartTransferSiloBehaviour(myagent), "START-TRANSFER-SILO");
 		this.registerState(new TransferSiloBehaviour(myagent), "TRANSFER-SILO");
@@ -25,6 +27,9 @@ public class TransferSiloFSMBehaviour extends FSMBehaviour {
 	public int onEnd() {
 		this.resetChildren();
 		this.reset();
-		return FSMCodes.Events.SUCESS.ordinal();
+		
+		if (this._myAgent.getBackPackFreeSpace() > 0)
+			return FSMCodes.Events.SUCESS.ordinal();
+		return FSMCodes.Events.FAILURE.ordinal();
 	}
 }

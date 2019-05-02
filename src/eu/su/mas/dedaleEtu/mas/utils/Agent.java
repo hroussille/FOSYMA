@@ -14,7 +14,7 @@ public class Agent implements Serializable {
 	
 	AID id;
 	Integer capacity;
-	Integer TTL = 10;
+	Integer TTL = 3;
 	Integer lockPick;
 	Integer strength;
 	Observation treasureType;

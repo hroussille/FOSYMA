@@ -20,6 +20,8 @@ public class CollectFSMBehaviour  extends FSMBehaviour
 	public CollectFSMBehaviour(CollectMultiAgent myagent) {
 		super(myagent);
 	
+		System.out.println(myagent.getLocalName() + " Treasure type : " + myagent.getMyTreasureType());
+		
 		this.registerFirstState(new StartCollectBehaviour(myagent), "START-COLLECT");
 		this.registerState(new LookForTankFSMBehaviour(myagent),"LOOK-FOR-TANK-START");
 		this.registerState(new LookForTankFSMBehaviour(myagent),"LOOK-FOR-TANK-END");

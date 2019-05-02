@@ -43,8 +43,8 @@ public class ReceiveMissionRequestBehaviour extends OneShotBehaviour {
 				System.out.println("Adding : " + agent.getAID().toString());
 				
 				this.received = true;
-				
 				this._myAgent.addAvailableAgent((Agent)msg.getContentObject());
+				
 				System.out.println("Received Mission request from : " + msg.getSender());
 			} 
 			catch (UnreadableException e) {
