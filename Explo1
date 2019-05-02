@@ -1,0 +1,3 @@
+DGS004
+null 0 0
+cg  "ui.stylesheet":"node {fill-color: black; size-mode:fit;text-alignment:under; text-size:14;text-color:white;text-background-mode:rounded-box;text-background-color:black;}node.open {fill-color: blue;}node.agent {fill-color: forestgreen;}"
