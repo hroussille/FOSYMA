@@ -27,8 +27,11 @@ public class RequestSupportBehaviour extends OneShotBehaviour {
 		
 		message.setProtocol("REQUEST-SUPPORT");
 		message.setSender(this._myAgent.getAID());
-		for (DFAgentDescription dsc: result)
+		
+		for (DFAgentDescription dsc: result) {
 			message.addReceiver(dsc.getName());
+			System.out.println("REQUESTING SUPPORT TO : " + dsc.getName().getLocalName());
+		}
 		
 		try {
 			message.setContentObject(this._myAgent.getCurrentMission());

@@ -1,10 +1,13 @@
 package eu.su.mas.dedaleEtu.mas.behaviours.explore;
 
+import java.io.IOException;
+
 import eu.su.mas.dedale.mas.AbstractDedaleAgent;
 import eu.su.mas.dedaleEtu.mas.agents.ExploreMultiAgent;
 import eu.su.mas.dedaleEtu.mas.behaviours.FSMCodes;
 import eu.su.mas.dedaleEtu.mas.utils.Mission;
 import jade.core.behaviours.OneShotBehaviour;
+import jade.domain.FIPAAgentManagement.DFAgentDescription;
 import jade.lang.acl.ACLMessage;
 import jade.lang.acl.MessageTemplate;
 import jade.lang.acl.UnreadableException;
@@ -37,6 +40,7 @@ public class ReceiveAssistRequestBehaviour extends OneShotBehaviour {
 		
 		try 
 		{
+			System.out.println("RECEIVE ASSIST REQUEST !");
 			this.received = true;
 			mission = (Mission) message.getContentObject();
 			this._myAgent.setDestinationId(mission.getDestination());

@@ -35,7 +35,10 @@ public class ReceiveAssistDisbandBehaviour extends OneShotBehaviour
 	public int onEnd()
 	{
 		if (this.received)
+		{
+			System.out.println("RECEIVE ASSIST DISBAND !");
 			return FSMCodes.Events.SUCESS.ordinal();
+		}
 		return FSMCodes.Events.FAILURE.ordinal();
 	}
 	

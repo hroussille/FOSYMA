@@ -98,7 +98,7 @@ public class AbstractMultiAgent extends AbstractDedaleAgent {
 		sd = new ServiceDescription();
 		dfd = new DFAgentDescription();
 		
-		sd.setType("TANK");
+		sd.setType(service);
 		dfd.addServices(sd);
 		
 		DFAgentDescription[] result = {};
