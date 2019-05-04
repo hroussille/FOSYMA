@@ -38,7 +38,10 @@ public class ReceiveMissionRequestBehaviour extends OneShotBehaviour {
 				Agent agent = (Agent) msg.getContentObject();
 				
 				if (this._myAgent.isInMission(agent) ||  this._myAgent.isAlreadyAvailable(agent))
+				{
+					System.out.println(agent.getAID().getLocalName() + " denied : IN MISSION " + this._myAgent.isInMission(agent) + " ALREADY AVAILABLE : " + this._myAgent.isAlreadyAvailable(agent));
 					continue;
+				}
 				
 				System.out.println("Adding : " + agent.getAID().toString());
 				

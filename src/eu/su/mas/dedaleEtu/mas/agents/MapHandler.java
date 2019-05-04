@@ -12,6 +12,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import org.graphstream.algorithm.Toolkit;
 import org.graphstream.graph.Node;
 import org.graphstream.stream.file.FileSinkDOT;
 
@@ -53,6 +54,21 @@ public class MapHandler implements java.io.Serializable
 	
 	public void computeCentroids() {
 		this.myMap.computeCentroids();
+	}
+	
+	public String computeMaxClusteringCoefficients()
+	{
+		String  nodeId = null;
+		Double coefficient = Double.NEGATIVE_INFINITY;
+				
+		for (Node node: this.myMap.g.getNodeSet())
+		{
+			Double tmp = Toolkit.clusteringCoefficient(node);
+			if (tmp > coefficient)
+				nodeId = node.getId();
+		}
+		
+		return nodeId;
 	}
 	
 	public ArrayList<String> getCentroids() {
@@ -151,4 +167,5 @@ public class MapHandler implements java.io.Serializable
 	{
 		this.myMap.loadSavedData();
 	}
+	
 }

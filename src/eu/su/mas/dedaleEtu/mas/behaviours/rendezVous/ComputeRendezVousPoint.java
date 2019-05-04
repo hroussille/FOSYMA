@@ -40,6 +40,12 @@ public class ComputeRendezVousPoint extends OneShotBehaviour {
 		this._myAgent.setDestinationId(centroids.get(degrees.indexOf(Collections.max(degrees))));
 		this._myAgent.setCentroid(centroids.get(degrees.indexOf(Collections.max(degrees))));
 		
+		String max = this._myAgent.map.computeMaxClusteringCoefficients();
+		
+		//this._myAgent.setDestinationId(max);
+		//this._myAgent.setCentroid(max);
+		
+		
 		System.out.println("TARGET CENTROID : " + this._myAgent.getDestinationId());
 		this._myAgent.registerService("RENDEZ-VOUS");
 	}

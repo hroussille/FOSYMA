@@ -21,16 +21,18 @@ public class ClientInterlockingFSMBehaviour extends FSMBehaviour
 		this.registerLastState(new EndClientInterlockingBehaviour(myagent), "END-CLIENT-INTERLOCKING");
 		this.registerState(new PopConflictBehaviour(myagent), "POP-CONFLICT");
 		this.registerState(new InterlockingFSMBehaviour(myagent), "INTERLOCKING");
-		this.registerState(new CheckTimeOutBehaviour(myagent, 10), "WAIT");
+		this.registerState(new CheckTimeOutBehaviour(myagent, 5), "WAIT");
 		this.registerState(new NotifyNodeAvailabilityBehaviour(myagent), "NOTIFY-NODE-AVAILABILITY");
 		this.registerState(new RandomInterlockingStrategyBehaviour(myagent), "RANDOM-INTERLOCKING-STRATEGY");
+		this.registerState(new RandomInterlockingStrategyBehaviour(myagent), "TEST");
 		
 		this.registerTransition("RECEIVE-NODE-REQUEST", "END-CLIENT-INTERLOCKING", FSMCodes.Events.FAILURE.ordinal());
 		this.registerTransition("RECEIVE-NODE-REQUEST", "RANDOM-INTERLOCKING-STRATEGY", FSMCodes.Events.SUCESS.ordinal());
 		this.registerTransition("RANDOM-INTERLOCKING-STRATEGY", "NOTIFY-NODE-AVAILABILITY", FSMCodes.Events.SUCESS.ordinal());
 		this.registerTransition("NOTIFY-NODE-AVAILABILITY", "WAIT", FSMCodes.Events.SUCESS.ordinal());
 		this.registerTransition("WAIT", "POP-CONFLICT", FSMCodes.Events.FAILURE.ordinal());
-		this.registerTransition("WAIT", "WAIT", FSMCodes.Events.SUCESS.ordinal());
+		this.registerTransition("WAIT", "TEST", FSMCodes.Events.SUCESS.ordinal());
+		this.registerTransition("TEST", "WAIT", FSMCodes.Events.SUCESS.ordinal());
 		this.registerTransition("RANDOM-INTERLOCKING-STRATEGY", "RANDOM-INTERLOCKING-STRATEGY", FSMCodes.Events.FAILURE.ordinal());
 		this.registerTransition("INTERLOCKING", "POP-CONFLICT", FSMCodes.Events.SUCESS.ordinal());
 		this.registerTransition("POP-CONFLICT", "END-CLIENT-INTERLOCKING", FSMCodes.Events.SUCESS.ordinal());

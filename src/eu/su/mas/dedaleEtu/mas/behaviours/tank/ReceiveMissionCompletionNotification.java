@@ -44,10 +44,13 @@ public class ReceiveMissionCompletionNotification extends OneShotBehaviour {
 		
 		if (msg != null) 
 		{
-			System.out.println("RECEIVED MISSION NOTIFICATION");
+			System.out.println("RECEIVED MISSION NOTIFICATION FROM " + msg.getSender());
 			try 
 			{
 				Mission mission = (Mission) msg.getContentObject();
+				
+				System.out.println("RECEIVED MISSION NOTIFICATION FROM " + msg.getSender());
+				
 				this._myAgent.removeMission(mission);
 				
 				if (mission.isEmptyObjective()) {

@@ -29,7 +29,7 @@ public class GoToBehaviour extends OneShotBehaviour {
 		
 		String myPosition=((AbstractDedaleAgent)this.myAgent).getCurrentPosition();
 		
-		this._myagent.doWait(500);
+		this._myagent.doWait(200);
 		
 		System.out.println("GOTO " + _myagent.getLocalName());
 		
@@ -49,7 +49,10 @@ public class GoToBehaviour extends OneShotBehaviour {
 	public int onEnd() 
 	{
 		if (this._myagent.getCurrentPosition().equals(this._myagent.getDestinationId()))
+		{
+			System.out.println(this._myagent.getLocalName()  + " reached destination");
 			return FSMCodes.Events.END.ordinal();
+		}
 		
 		if (this.moved)
 			return FSMCodes.Events.SUCESS.ordinal();

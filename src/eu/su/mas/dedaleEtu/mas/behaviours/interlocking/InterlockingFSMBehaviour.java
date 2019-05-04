@@ -30,7 +30,7 @@ public class InterlockingFSMBehaviour extends FSMBehaviour
 		this.registerTransition("CHECK-INTERLOCKING-TYPE", "RANDOM-INTERLOCKING", FSMCodes.Events.WUMPUS.ordinal());
 		this.registerTransition("CHECK-INTERLOCKING-TYPE", "RANDOM-INTERLOCKING", FSMCodes.Events.CONFLICT.ordinal());
 		this.registerTransition("RANDOM-INTERLOCKING", "END-INTERLOCKING", FSMCodes.Events.SUCESS.ordinal());
-		this.registerTransition("RANDOM-INTERLOCKING", "REQUEST-NODE", FSMCodes.Events.FAILURE.ordinal());
+		this.registerTransition("RANDOM-INTERLOCKING", "END-INTERLOCKING", FSMCodes.Events.FAILURE.ordinal());
 		this.registerTransition("REQUEST-NODE", "WAIT-NODE-AVAILABILITY", FSMCodes.Events.SUCESS.ordinal());
 		this.registerTransition("WAIT-NODE-AVAILABILITY", "CHECK-TIMEOUT", FSMCodes.Events.FAILURE.ordinal());
 		this.registerTransition("WAIT-NODE-AVAILABILITY", "GET-NODE", FSMCodes.Events.SUCESS.ordinal());

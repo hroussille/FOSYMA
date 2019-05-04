@@ -32,10 +32,9 @@ public class ReceiveNodeRequestBehaviour extends OneShotBehaviour {
 		this.received = false;
 		
 		ACLMessage message = receiveMessage();
-		
 	
 		if (message != null && isMessageValid(message)) 
-		{
+		{	
 				try 
 				{
 					this.received = true;
@@ -56,7 +55,6 @@ public class ReceiveNodeRequestBehaviour extends OneShotBehaviour {
 	
 		message = ((AbstractDedaleAgent)this.myAgent).receive(pattern);
 		
-		System.out.println("RECEIVE-NODE-REQUEST : " + message);
 		return message;
 	}
 	
@@ -68,13 +66,7 @@ public class ReceiveNodeRequestBehaviour extends OneShotBehaviour {
 			
 			if (conflict.getConflictingNode().equals(this._myAgent.getCurrentPosition()))
 			{
-				Random r= new Random();
-				
-				//if (conflict.getPriority() >= r.nextInt(this._myAgent.getPriority()))
-				//{
-					System.out.println("RECEIVE VALID NODE REQUEST");
 					return true;
-				//}
 			}
 		}
 		

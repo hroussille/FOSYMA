@@ -4,6 +4,7 @@ import eu.su.mas.dedaleEtu.mas.agents.TankMultiAgent;
 import eu.su.mas.dedaleEtu.mas.behaviours.InterlockingClient.ClientInterlockingFSMBehaviour;
 import eu.su.mas.dedaleEtu.mas.behaviours.broadcast.SendBroadcastBehaviour;
 import eu.su.mas.dedaleEtu.mas.behaviours.interlocking.InterlockingFSMBehaviour;
+import eu.su.mas.dedaleEtu.mas.behaviours.interlocking.RandomInterlockingStrategyBehaviour;
 import eu.su.mas.dedaleEtu.mas.behaviours.movements.GoToBehaviour;
 import eu.su.mas.dedaleEtu.mas.behaviours.tank.EndTankBehaviour;
 import eu.su.mas.dedaleEtu.mas.behaviours.tank.ReceiveMissionAssignementACKBehaviour;
@@ -37,6 +38,7 @@ public class TankFSMBehaviour  extends FSMBehaviour {
 		this.registerState(new InterlockingFSMBehaviour(myagent), "INTERLOCKING");
 		this.registerState(new ClientInterlockingFSMBehaviour(myagent), "CLIENT-INTERLOCKING");
 		this.registerState(new GoToBehaviour(myagent), "GO-TO");
+		this.registerState(new RandomInterlockingStrategyBehaviour(myagent), "RANDOM");
 		this.registerState(new UpdatePendingMissionsTTLBehaviour(myagent), "UPDATE-TTL");
 		this.registerLastState(new EndTankBehaviour(myagent), "END-TANK");
 		
@@ -53,7 +55,9 @@ public class TankFSMBehaviour  extends FSMBehaviour {
 		this.registerTransition("RECEIVE-UPDATE-TANKER-KNOWLEDGE", "GO-TO", FSMCodes.Events.SUCESS.ordinal());
 		this.registerTransition("GO-TO", "UPDATE-TTL", FSMCodes.Events.SUCESS.ordinal());
 		this.registerTransition("GO-TO", "INTERLOCKING", FSMCodes.Events.FAILURE.ordinal());
-		this.registerTransition("GO-TO", "UPDATE-TTL", FSMCodes.Events.END.ordinal());
+		this.registerTransition("GO-TO", "RANDOM", FSMCodes.Events.END.ordinal());
+		this.registerTransition("RANDOM", "UPDATE-TTL", FSMCodes.Events.SUCESS.ordinal());
+		this.registerTransition("RANDOM", "UPDATE-TTL", FSMCodes.Events.FAILURE.ordinal());
 		this.registerTransition("UPDATE-TTL", "CLIENT-INTERLOCKING", FSMCodes.Events.SUCESS.ordinal());
 		this.registerTransition("INTERLOCKING", "UPDATE-TTL", FSMCodes.Events.SUCESS.ordinal());
 	}

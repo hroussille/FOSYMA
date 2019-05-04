@@ -78,13 +78,14 @@ public class TankMultiAgent extends AbstractMultiAgent {
 		
 		public void addAvailableAgent(Agent newAgent)
 		{
-			if (this.availableAgents.contains(newAgent) || this.isInMission(newAgent))
+			if (isAlreadyAvailable(newAgent)  || this.isInMission(newAgent))
 				return;
 			
 			this.availableAgents.add(newAgent);
 		}
 		
-		public boolean isAlreadyAvailable(Agent agent) {
+		public boolean isAlreadyAvailable(Agent agent) 
+		{	
 			for (Agent _agent: this.availableAgents) {
 				if (_agent.getAID().toString().equals(agent.getAID().toString()))
 					return true;

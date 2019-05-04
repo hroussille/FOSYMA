@@ -51,6 +51,7 @@ public class SendMissionRequestBehaviour extends OneShotBehaviour {
 			e.printStackTrace();
 		}
 		((AbstractDedaleAgent)this.myAgent).sendMessage(msg);
+		this._myAgent.doWait(100);
 	}
 	
 	private ACLMessage buildMessage(DFAgentDescription[] result) {

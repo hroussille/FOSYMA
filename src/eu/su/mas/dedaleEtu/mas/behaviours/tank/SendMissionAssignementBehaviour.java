@@ -34,6 +34,9 @@ public class SendMissionAssignementBehaviour extends OneShotBehaviour {
 			
 			if (this._myAgent.getTreasureMap().size() == 0 || max == null)
 			{
+				System.out.println("NO TREASURE FOR : " + agent.getAID().getLocalName());
+				System.out.println("TREASURE MAP : " + this._myAgent.getTreasureMap());
+				System.out.println("MAX : " + max);
 				this._myAgent.addAvailableAgent(agent);
 				return;
 			}

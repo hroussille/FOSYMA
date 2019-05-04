@@ -25,6 +25,7 @@ public class CollectFSMBehaviour  extends FSMBehaviour
 		this.registerFirstState(new StartCollectBehaviour(myagent), "START-COLLECT");
 		this.registerState(new LookForTankFSMBehaviour(myagent),"LOOK-FOR-TANK-START");
 		this.registerState(new LookForTankFSMBehaviour(myagent),"LOOK-FOR-TANK-END");
+		this.registerState(new LookForTankFSMBehaviour(myagent), "LOOK-FOR-TANK-NOTIFY"); 
 		this.registerState(new GetMissionFSMBehaviour(myagent), "GET-MISSION");
 		this.registerState(new DoMissionFSMBehaviour(myagent), "DO-MISSION");
 		this.registerState(new TransferSiloFSMBehaviour(myagent), "TRANSFER-SILO");
@@ -38,8 +39,10 @@ public class CollectFSMBehaviour  extends FSMBehaviour
 		this.registerTransition("DO-MISSION", "LOOK-FOR-TANK-END", FSMCodes.Events.SUCESS.ordinal());
 		this.registerTransition("LOOK-FOR-TANK-END", "TRANSFER-SILO", FSMCodes.Events.SUCESS.ordinal());
 		this.registerTransition("TRANSFER-SILO", "LOOK-FOR-TANK-END", FSMCodes.Events.FAILURE.ordinal());
-		this.registerTransition("TRANSFER-SILO", "NOTIFY-MISSION-COMPLETION", FSMCodes.Events.SUCESS.ordinal());
-		this.registerTransition("NOTIFY-MISSION-COMPLETION", "LOOK-FOR-TANK-START",FSMCodes.Events.SUCESS.ordinal());
+		this.registerTransition("TRANSFER-SILO", "LOOK-FOR-TANK-NOTIFY", FSMCodes.Events.SUCESS.ordinal());
+		this.registerTransition("LOOK-FOR-TANK-NOTIFY", "NOTIFY-MISSION-COMPLETION",FSMCodes.Events.SUCESS.ordinal());
+		this.registerTransition("NOTIFY-MISSION-COMPLETION", "LOOK-FOR-TANK-NOTIFY", FSMCodes.Events.FAILURE.ordinal());
+		this.registerTransition("NOTIFY-MISSION-COMPLETION", "LOOK-FOR-TANK-START", FSMCodes.Events.SUCESS.ordinal());
 	}
 	
 	public int onEnd() {

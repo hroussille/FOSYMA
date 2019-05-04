@@ -24,7 +24,7 @@ public class AssistFSMBehaviour extends FSMBehaviour {
 		this.registerState(new EndAssistBehaviour(myagent), "END-ASSIST");
 		
 		this.registerTransition("GO-TO", "RECEIVE-DISBAND", FSMCodes.Events.SUCESS.ordinal());
-		this.registerTransition("GO-TO", "INTERLOCKING", FSMCodes.Events.FAILURE.ordinal());
+		this.registerTransition("GO-TO", "RECEIVE-DISBAND", FSMCodes.Events.FAILURE.ordinal());
 		this.registerTransition("GO-TO", "RECEIVE-DISBAND", FSMCodes.Events.END.ordinal());
 		this.registerTransition("RECEIVE-DISBAND", "GO-TO", FSMCodes.Events.FAILURE.ordinal());
 		this.registerTransition("RECEIVE-DISBAND", "END-ASSIST", FSMCodes.Events.SUCESS.ordinal());
