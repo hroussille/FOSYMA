@@ -1,6 +1,7 @@
 package eu.su.mas.dedaleEtu.mas.agents;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -137,7 +138,13 @@ public class AbstractMultiAgent extends AbstractDedaleAgent {
 		String node = null;
 		Integer quantity = -1;
 		
-		for (String key: this.treasureMap.keySet()) {
+		ArrayList<String> l = new ArrayList<String>(this.treasureMap.keySet());
+		Collections.shuffle(l);
+		
+		this.treasureMap.keySet();
+		
+		
+		for (String key: l) {
 			if (/*this.treasureMap.get(key).getRight() >= quantity &&*/ this.treasureMap.get(key).getLeft() == type) {
 				quantity = this.treasureMap.get(key).getRight();
 				node = key;

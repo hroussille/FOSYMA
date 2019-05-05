@@ -40,8 +40,6 @@ public class SendBroadcastBehaviour extends OneShotBehaviour {
 		
 		result = this.getMatchingAgents();
 		
-		System.out.println("Send broadcast : " + this.service);
-		
 		ACLMessage msg= this.buildBroadcastMessage(result);
 		
 		if (myPosition!=""){
@@ -56,13 +54,10 @@ public class SendBroadcastBehaviour extends OneShotBehaviour {
 		msg.setSender(this.myAgent.getAID());
 		msg.setProtocol(this.protocol);
 		
-		System.out.println("Result size : " + result.length);
-		
 		for (DFAgentDescription dsc : result)
 		{
 			if (!this.myAgent.getAID().toString().equals(dsc.getName().toString()))
 				msg.addReceiver(dsc.getName());
-				System.out.println(dsc.getName().toString());
 		}
 		
 		return msg;

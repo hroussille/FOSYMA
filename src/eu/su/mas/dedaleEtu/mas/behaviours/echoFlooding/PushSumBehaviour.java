@@ -29,7 +29,9 @@ public class PushSumBehaviour extends TopDownTreeOperations{
 	}
 
 	@Override
-	protected Serializable sendParentStrategy() {
+	protected Serializable sendParentStrategy() 
+	{
+		System.out.println(this._myAgent.getLocalName() + " CHILDRENDS ALL ANSWERED " + this._myAgent.getTree(this.treeId).getChildren());
 		return Integer.valueOf(this.value + 1);
 	}
 

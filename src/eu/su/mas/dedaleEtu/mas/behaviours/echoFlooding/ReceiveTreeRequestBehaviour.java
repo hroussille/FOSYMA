@@ -31,7 +31,7 @@ public class ReceiveTreeRequestBehaviour extends OneShotBehaviour {
 		
 		msg = ((AbstractDedaleAgent)this.myAgent).receive(pattern);
 		
-		if (msg != null && this._myAgent.map.getMap().getShortestPath(this._myAgent.getCurrentPosition(), msg.getConversationId()).size() <= 2) {
+		if (msg != null && this._myAgent.map.getMap().getShortestPath(this._myAgent.getCurrentPosition(), msg.getConversationId()).size() <= 1) {
 			this.received = true;
 			this._myAgent.setMoveAllowed(false);
 			System.out.println(this.myAgent.getLocalName().toString() + " Received Tree Request from " + msg.getSender().toString());

@@ -29,7 +29,7 @@ public class GoToBehaviour extends OneShotBehaviour {
 		
 		String myPosition=((AbstractDedaleAgent)this.myAgent).getCurrentPosition();
 		
-		this._myagent.doWait(200);
+		this._myagent.doWait(600);
 		
 		System.out.println("GOTO " + _myagent.getLocalName());
 		

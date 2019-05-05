@@ -28,7 +28,7 @@ public class ClientInterlockingFSMBehaviour extends FSMBehaviour
 		
 		this.registerTransition("RECEIVE-NODE-REQUEST", "END-CLIENT-INTERLOCKING", FSMCodes.Events.FAILURE.ordinal());
 		this.registerTransition("RECEIVE-NODE-REQUEST", "RANDOM-INTERLOCKING-STRATEGY", FSMCodes.Events.SUCESS.ordinal());
-		this.registerTransition("RANDOM-INTERLOCKING-STRATEGY", "NOTIFY-NODE-AVAILABILITY", FSMCodes.Events.SUCESS.ordinal());
+		this.registerTransition("RANDOM-INTERLOCKING-STRATEGY", "END-CLIENT-INTERLOCKING", FSMCodes.Events.SUCESS.ordinal());
 		this.registerTransition("NOTIFY-NODE-AVAILABILITY", "WAIT", FSMCodes.Events.SUCESS.ordinal());
 		this.registerTransition("WAIT", "POP-CONFLICT", FSMCodes.Events.FAILURE.ordinal());
 		this.registerTransition("WAIT", "TEST", FSMCodes.Events.SUCESS.ordinal());

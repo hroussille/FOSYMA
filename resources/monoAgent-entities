@@ -5,4 +5,5 @@ agentExplo:Explo2:3:free:-1:-1:0:2:1
 agentExplo:Explo3:3:free:-1:-1:0:2:1
 agentCollect:Collect1:3:free:100:50:0:1:2
 agentCollect:Collect2:3:free:50:100:0:1:2
-agentTanker:Tanker1:3:free:10000:10000:0:1:5
+agentCollect:Collect3:3:free:50:100:0:1:2
+agentTanker:Silo:3:free:10000:10000:0:1:5

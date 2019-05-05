@@ -68,8 +68,8 @@ public final class ConfigurationFile {
 	/**
 	 * Must'nt be null as it describes the agents capabilities on the map
 	 */
-	//public static String INSTANCE_CONFIGURATION_ENTITIES="resources/map2018-entities";
 	public static String INSTANCE_CONFIGURATION_ENTITIES="resources/map2019-entitiesExam1";
+	//public static String INSTANCE_CONFIGURATION_ENTITIES="resources/monoAgent-entities";
 
 	
 	/************************************
