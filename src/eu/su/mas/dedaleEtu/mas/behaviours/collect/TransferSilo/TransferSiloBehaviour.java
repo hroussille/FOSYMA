@@ -21,7 +21,12 @@ public class TransferSiloBehaviour extends OneShotBehaviour {
 	@Override
 	public void action() {
 		System.out.println("Backpack before : " + this._myAgent.getBackPackFreeSpace());
-		System.out.println(this.myAgent.getLocalName()+" - The agent tries to transfer is load into the Silo (if reachable); succes ? : " + ((AbstractDedaleAgent)this.myAgent).emptyMyBackPack("Tanker1"));
+	//	try {
+			System.out.println(this.myAgent.getLocalName()+" - The agent tries to transfer is load into the Silo (if reachable); succes ? : " + ((AbstractDedaleAgent)this.myAgent).emptyMyBackPack("Silo"));
+	//	}
+	//	catch (java.lang.NullPointerException ex){
+			
+	//	}
 		System.out.println("Backpack after : " + this._myAgent.getBackPackFreeSpace());
 	}
 	

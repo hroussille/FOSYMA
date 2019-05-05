@@ -22,7 +22,14 @@ public class PickUpObjectiveBehaviour extends OneShotBehaviour {
 		System.out.println("Current position : " + this._myAgent.getCurrentPosition());
 		System.out.println("Current backpack : " + this._myAgent.getBackPackFreeSpace());
 		
-		System.out.println(this._myAgent.getLocalName() + " PICKED : " + this._myAgent.pick());
+	//	try
+	//	{
+			System.out.println(this._myAgent.getLocalName() + " PICKED : " + this._myAgent.pick());
+	//	}
+	//	catch (java.lang.NullPointerException ex)
+	//	{
+			
+//		}
 		System.out.println("EMPTY : " + this._myAgent.isCurrentPositionEmpty());
 		
 		this._myAgent.updateTreasureMap();

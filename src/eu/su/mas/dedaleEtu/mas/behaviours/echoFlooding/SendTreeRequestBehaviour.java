@@ -54,6 +54,7 @@ public class SendTreeRequestBehaviour extends OneShotBehaviour {
 		msg.setSender(this.myAgent.getAID());
 		msg.setProtocol("TREE-REQUEST");
 		msg.setContent(this.tree);
+		msg.setConversationId(this._myagent.getCurrentPosition());
 		
 		for (DFAgentDescription dsc : result)
 		{

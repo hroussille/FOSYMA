@@ -4,6 +4,7 @@ import eu.su.mas.dedaleEtu.mas.agents.CollectMultiAgent;
 import eu.su.mas.dedaleEtu.mas.behaviours.collect.EndCollectBehaviour;
 import eu.su.mas.dedaleEtu.mas.behaviours.collect.StartCollectBehaviour;
 import eu.su.mas.dedaleEtu.mas.behaviours.collect.DoMission.DoMissionFSMBehaviour;
+import eu.su.mas.dedaleEtu.mas.behaviours.collect.GetMission.CheckTimeOutBehaviour;
 import eu.su.mas.dedaleEtu.mas.behaviours.collect.GetMission.GetMissionFSMBehaviour;
 import eu.su.mas.dedaleEtu.mas.behaviours.collect.LookForTank.LookForTankFSMBehaviour;
 import eu.su.mas.dedaleEtu.mas.behaviours.collect.NotifyMissionCompletion.NotifyMissionCompletionFSMBehaviour;

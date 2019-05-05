@@ -1,6 +1,7 @@
 package eu.su.mas.dedaleEtu.mas.behaviours.explore;
 
 import eu.su.mas.dedale.mas.AbstractDedaleAgent;
+import eu.su.mas.dedaleEtu.mas.agents.AbstractMultiAgent;
 import eu.su.mas.dedaleEtu.mas.agents.ExploreMultiAgent;
 import eu.su.mas.dedaleEtu.mas.behaviours.FSMCodes;
 import eu.su.mas.dedaleEtu.mas.utils.Mission;
@@ -14,10 +15,10 @@ public class ReceiveAssistDisbandBehaviour extends OneShotBehaviour
 	 * 
 	 */
 	private static final long serialVersionUID = 3722398474602125015L;
-	private ExploreMultiAgent _myAgent;
+	private AbstractMultiAgent _myAgent;
 	private boolean received = false;
 
-	public ReceiveAssistDisbandBehaviour(ExploreMultiAgent myagent)
+	public ReceiveAssistDisbandBehaviour(AbstractMultiAgent myagent)
 	{
 		super(myagent);
 		this._myAgent = myagent;

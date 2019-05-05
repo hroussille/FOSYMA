@@ -1,5 +1,6 @@
 package eu.su.mas.dedaleEtu.mas.behaviours.explore;
 
+import eu.su.mas.dedaleEtu.mas.agents.AbstractMultiAgent;
 import eu.su.mas.dedaleEtu.mas.agents.ExploreMultiAgent;
 import eu.su.mas.dedaleEtu.mas.behaviours.FSMCodes;
 import eu.su.mas.dedaleEtu.mas.behaviours.interlocking.InterlockingFSMBehaviour;
@@ -12,9 +13,9 @@ public class AssistFSMBehaviour extends FSMBehaviour {
 	 * 
 	 */
 	private static final long serialVersionUID = -2978555694584966099L;
-	private ExploreMultiAgent _myAgent;
+	private AbstractMultiAgent _myAgent;
 
-	public AssistFSMBehaviour(ExploreMultiAgent myagent) {
+	public AssistFSMBehaviour(AbstractMultiAgent myagent) {
 		super(myagent);
 		this._myAgent = myagent;
 		

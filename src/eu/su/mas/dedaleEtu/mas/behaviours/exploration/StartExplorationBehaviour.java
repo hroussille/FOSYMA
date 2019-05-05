@@ -9,8 +9,8 @@ import jade.domain.DFService;
 import jade.domain.FIPAException;
 import jade.domain.FIPAAgentManagement.ServiceDescription;
 
-public class StartExplorationBehaviour extends OneShotBehaviour {
-
+public class StartExplorationBehaviour extends OneShotBehaviour 
+{
 	private static final long serialVersionUID = -1560211412262637077L;
 
 	public StartExplorationBehaviour(AbstractMultiAgent myagent) {
@@ -23,6 +23,9 @@ public class StartExplorationBehaviour extends OneShotBehaviour {
 		agent.registerService("ALL_AGENTS");
 		agent.registerService("EXPLORATION");
 		System.out.println(this.getClass().getName());
+		
+		System.out.println("EXPERTISE : " + this.myAgent.getLocalName());
+		System.out.println(((AbstractMultiAgent) this.myAgent).getMyExpertise());
 	}
 	
 	public int onEnd() {

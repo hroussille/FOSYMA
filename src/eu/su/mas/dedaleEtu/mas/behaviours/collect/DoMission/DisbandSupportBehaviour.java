@@ -26,13 +26,18 @@ public class DisbandSupportBehaviour extends OneShotBehaviour
 	@Override
 	public void action() 
 	{
-		DFAgentDescription[] result = this._myAgent.getMatchingAgents("EXPLORE");
+		DFAgentDescription[] result_explore = this._myAgent.getMatchingAgents("EXPLORE");
+		DFAgentDescription[] result_collect = this._myAgent.getMatchingAgents("COLLECT");
+		
 		ACLMessage message = new ACLMessage(ACLMessage.CANCEL);
 		
 		message.setSender(this._myAgent.getAID());
 		message.setProtocol("DISBAND-SUPPORT");
 		
-		for (DFAgentDescription dsc: result)
+		for (DFAgentDescription dsc: result_explore)
+			message.addReceiver(dsc.getName());
+		
+		for (DFAgentDescription dsc: result_collect)
 			message.addReceiver(dsc.getName());
 		
 		try {

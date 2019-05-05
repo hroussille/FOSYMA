@@ -22,15 +22,22 @@ public class RequestSupportBehaviour extends OneShotBehaviour {
 	@Override
 	public void action() 
 	{
-		DFAgentDescription[] result = this._myAgent.getMatchingAgents("EXPLORE");
+		DFAgentDescription[] result_explore = this._myAgent.getMatchingAgents("EXPLORE");
+		DFAgentDescription[] result_collect = this._myAgent.getMatchingAgents("COLLECT");
+		
 		ACLMessage message = new ACLMessage(ACLMessage.REQUEST);
 		
 		message.setProtocol("REQUEST-SUPPORT");
 		message.setSender(this._myAgent.getAID());
 		
-		for (DFAgentDescription dsc: result) {
+		for (DFAgentDescription dsc: result_explore) {
 			message.addReceiver(dsc.getName());
-			System.out.println("REQUESTING SUPPORT TO : " + dsc.getName().getLocalName());
+		}
+		
+		for (DFAgentDescription dsc: result_collect) {
+			if (!dsc.getName().getLocalName().equals(this._myAgent.getAID().getLocalName())) {
+				message.addReceiver(dsc.getName());
+			}
 		}
 		
 		try {

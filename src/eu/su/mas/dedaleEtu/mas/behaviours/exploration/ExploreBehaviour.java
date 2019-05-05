@@ -134,7 +134,7 @@ public class ExploreBehaviour extends OneShotBehaviour {
 							
 						}
 						
-						if ((this.moved = ((AbstractDedaleAgent)this.myAgent).moveTo(nextNode)) == false) {
+						if (nextNode != null && (this.moved = ((AbstractDedaleAgent)this.myAgent).moveTo(nextNode)) == false) {
 							//Random move from the current position
 							Random r = new Random();
 							int moveId=1+r.nextInt(lobs.size()-1);//removing the current position from the list of target, not necessary as to stay is an action but allow quicker random move

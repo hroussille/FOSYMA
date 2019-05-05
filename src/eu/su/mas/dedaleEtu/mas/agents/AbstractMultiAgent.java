@@ -10,6 +10,7 @@ import dataStructures.tuple.Couple;
 import eu.su.mas.dedale.mas.AbstractDedaleAgent;
 import eu.su.mas.dedaleEtu.mas.behaviours.echoFlooding.TreeNode;
 import eu.su.mas.dedaleEtu.mas.utils.Conflict;
+import eu.su.mas.dedaleEtu.mas.utils.Mission;
 import jade.core.AID;
 import jade.domain.DFService;
 import jade.domain.FIPAException;
@@ -46,6 +47,7 @@ public class AbstractMultiAgent extends AbstractDedaleAgent {
 	private Conflict currentConflict;
 	private String savedDestinationId = null;
 	private ArrayList<String> savedPath = null;
+	private Mission currentAssist;
 	
 	private AgentType type;
 
@@ -136,9 +138,10 @@ public class AbstractMultiAgent extends AbstractDedaleAgent {
 		Integer quantity = -1;
 		
 		for (String key: this.treasureMap.keySet()) {
-			if (this.treasureMap.get(key).getRight() >= quantity && this.treasureMap.get(key).getLeft() == type) {
+			if (/*this.treasureMap.get(key).getRight() >= quantity &&*/ this.treasureMap.get(key).getLeft() == type) {
 				quantity = this.treasureMap.get(key).getRight();
 				node = key;
+				return node;
 			}
 		}
 		
@@ -399,5 +402,13 @@ public class AbstractMultiAgent extends AbstractDedaleAgent {
 	public Conflict peekConflict()
 	{
 		return this.conflicts.peek();
+	}
+	
+	public Mission getCurrentAssist() {
+		return currentAssist;
+	}
+
+	public void setCurrentAssist(Mission currentAssist) {
+		this.currentAssist = currentAssist;
 	}
 }

@@ -1,5 +1,6 @@
 package eu.su.mas.dedaleEtu.mas.behaviours.explore;
 
+import eu.su.mas.dedaleEtu.mas.agents.AbstractMultiAgent;
 import eu.su.mas.dedaleEtu.mas.agents.ExploreMultiAgent;
 import eu.su.mas.dedaleEtu.mas.behaviours.FSMCodes;
 import jade.core.behaviours.OneShotBehaviour;
@@ -9,9 +10,9 @@ public class EndAssistBehaviour extends OneShotBehaviour {
 	 * 
 	 */
 	private static final long serialVersionUID = -4105561273336648864L;
-	private ExploreMultiAgent _myAgent;
+	private AbstractMultiAgent _myAgent;
 	
-	public EndAssistBehaviour(ExploreMultiAgent myagent)
+	public EndAssistBehaviour(AbstractMultiAgent myagent)
 	{
 		super(myagent);
 		this._myAgent = myagent;

@@ -72,7 +72,7 @@ public class MapRepresentation implements Serializable {
 		this.g.setAttribute("ui.stylesheet",nodeStyle);
 		this.nbEdges=0;
 		
-		this.openGui();
+		//this.openGui();
 	}
 
 	/**
@@ -149,8 +149,10 @@ public class MapRepresentation implements Serializable {
 		dijkstra.clear();
 		System.out.println("From : " + idFrom + " To : " + idTo + " " + shortestPath);
 		
-		if (shortestPath.size() == 0) 
+		if (shortestPath.size() == 0) {
+			System.out.println("NO PATH");
 			return null;
+		}
 		
 		shortestPath.remove(0);//remove the current position
 		return shortestPath;
@@ -212,7 +214,7 @@ public class MapRepresentation implements Serializable {
 			sg.addEdge(e.getId(), sn.getId(), tn.getId());
 		}
 
-		closeGui();
+		//closeGui();
 
 		this.g=null;
 	}
@@ -225,7 +227,7 @@ public class MapRepresentation implements Serializable {
 		this.g= new SingleGraph("My world vision");
 		this.g.setAttribute("ui.stylesheet",nodeStyle);
 		
-		openGui();
+		//openGui();
 		
 		Integer nbEd=0;
 		for (SerializableNode<String, MapAttribute> n: this.sg.getAllNodes()){

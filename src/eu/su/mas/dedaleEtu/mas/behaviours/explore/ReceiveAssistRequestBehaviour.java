@@ -3,6 +3,7 @@ package eu.su.mas.dedaleEtu.mas.behaviours.explore;
 import java.io.IOException;
 
 import eu.su.mas.dedale.mas.AbstractDedaleAgent;
+import eu.su.mas.dedaleEtu.mas.agents.AbstractMultiAgent;
 import eu.su.mas.dedaleEtu.mas.agents.ExploreMultiAgent;
 import eu.su.mas.dedaleEtu.mas.behaviours.FSMCodes;
 import eu.su.mas.dedaleEtu.mas.utils.Mission;
@@ -19,9 +20,9 @@ public class ReceiveAssistRequestBehaviour extends OneShotBehaviour {
 	 */
 	private static final long serialVersionUID = 6811866771506621533L;
 	private boolean received = false;
-	private ExploreMultiAgent _myAgent;
+	private AbstractMultiAgent _myAgent;
 	
-	public ReceiveAssistRequestBehaviour(ExploreMultiAgent myagent)
+	public ReceiveAssistRequestBehaviour(AbstractMultiAgent myagent)
 	{
 		super(myagent);
 		this._myAgent = myagent;
